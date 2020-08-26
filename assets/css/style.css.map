@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEI,UAAM;EACF,UAAU,ECHH,OAAO;;ADOtB,KAAM;EACF,aAAa,EAAE,IAAI",
+"sources": ["../sass/layout/component/_form.scss","../sass/layout/base/_colors.scss"],
+"names": [],
+"file": "style.css"
+}
