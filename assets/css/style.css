@@ -1,7 +1,18 @@
 .form__all {
   background: #303030; }
+  .form__all input {
+    color: #0D8187; }
 
 input {
   border-radius: 10px; }
+
+::placeholder {
+  color: red; }
+
+textarea {
+  color: #0D8187; }
+
+.btn {
+  background: #0D8187; }
 
 /*# sourceMappingURL=style.css.map */

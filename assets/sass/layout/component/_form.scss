@@ -2,9 +2,21 @@
 
     &__all{
         background: $first-color;
+
+        input{
+            color: $third-color;
+        }
     }
 }
 
 input {
     border-radius: 10px;
+}
+
+::placeholder{
+    color: red;
+}
+
+textarea{
+    color: $third-color;
 }

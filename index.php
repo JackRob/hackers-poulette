@@ -15,45 +15,49 @@
                 <img src="assets/img/hackers-poulette-logo.png" alt="Logo Hackers Poulette">
         </header>
         <section>
-            <div class="form__all p-10 px-8 flex flex-col rounded-lg text-center text-white">
+            <div class="form__all text-center p-10 px-8 flex flex-col rounded-lg text-white">
                 <form action="" method="POST">
                     <!-- Lastname and Firstname -->
-                    <label for="l-name" alt="Lastname" class="lg:flex">Lastname
-                        <input type="text" name="l-name" value="Doe" alt="insert lastname">
+                    <label for="l-name" alt="Lastname" class="block">Lastname
+                        <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
                     </label>
-                    <label for="f-name" alt="Firstname" class="lg:flex">firstname
-                    <input type="text" name="f-name" value="John" alt="insert firstname">
+                    <label for="f-name" alt="Firstname" class="block">firstname
+                    <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
                     </label>
                     <!-- Gender -->
-                    <label for="gender" alt="Gender" class="block">Gender
-                        <input type="radio" name="gender" value="m" alt="Masculin" class="mx-4">
-                        <input type="radio" name="gender" value="f" alt="Feminin">
-                        <input type="radio" name="gender" value="o" alt="Other" class="mx-4">
-                    </label>
+                    <label for="gender" alt="Gender" class="block text-center">Gender</label>
+                         <section class="text-center m-0">
+                            <label for=gender>M</label>
+                            <input type="radio" name="gender" value="m" alt="Masculin" class="align-middle">
+                            <label for="gender" class="ml-4">F</label>
+                            <input type="radio" name="gender" value="f" alt="Feminin" class="align-middle">
+                            <label for="gender" class="ml-4">O</label>
+                            <input type="radio" name="gender" value="o" alt="Other" class="align-middle">
+                        </section>
                     <!-- E-mail -->
                     <label for="mail" alt="E-mail">E-mail
-                        <input type="text" name="mail" alt="insert mail">
+                        <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
                     </label>
                     <!-- Country-->
                     <label for="country">Country
-                        <input type="email" name="country" alt="Insert country">
+                        <input type="email" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
                     </label>
                     <!-- Subject-->
                    
                     <label for="subject" class="block">Subject</label>
-                        <select name="subject" alt="Choose Subject">
+                        <select name="subject" alt="Choose Subject" class="rounded">
+                            <option value="" selected disabled hidden>Choose here</option>
                             <option value="recrutement">Recrutement</option>
                             <option value="reclamation" alt="order info">Info about my order</option>
                             <option value="other" alt="refund">Refund</option>
                         </select>
-                    
                 </form>
 
                 <!-- Message -->
                 <label for="message" alt="message">Message</label>
-                <textarea rows="6" cols="20" name="message"></textarea>
+                <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600" placeholder="Your text here..."></textarea>
             </div>
-                <input type="submit" name="submit" value="Send" alt="Submit">
+                <input type="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500">
         </section>
     </div>
 </body>
