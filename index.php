@@ -1,3 +1,61 @@
+<?php
+    require 'form.php';
+    //PHPMAILER
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+   
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
+
+    //FORM
+    $error = "";
+    $lName = filter_var($_POST['l-name'], FILTER_SANITIZE_STRING);
+    $fName = filter_var($_POST['f-name'], FILTER_SANITIZE_STRING);
+    $gender = $_POST['gender'];
+    $email = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
+    $country = filter_var($_POST['country'], FILTER_SANITIZE_STRING);
+    $subject= $_POST['subject'];
+    $msg = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+
+    if(isset($lName, $fName, $gender, $email, $country, $msg)){
+        if(false === filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $error = "Invalid! ";
+        } else {
+            $mail = new PHPMailer(true);
+
+            try {
+                //Server settings
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                                                // Enable verbose debug output
+                $mail->isSMTP();                                                                                                    // Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                                                            // Set the SMTP server to send through
+                $mail->Username   = 'artofgrob@gmail.com';                                                         // SMTP username
+                $mail->SMTPAuth   = true;                                                                                   // Enable SMTP authentication
+                $mail->Password   = 'E1Gg2lC8-Mao1P12$';                                                                               // SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;  //587 outlook                                                                                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('jacquemart.rob@gmail.com', 'Mr Robot');
+                $mail->addAddress("jacquemart.rob@gmail.com");     // Add a recipient
+                //$mail->addReplyTo('info@example.com', 'Information');
+                //$mail->addCC('cc@example.com');
+                //$mail->addBCC('bcc@example.com');
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'Here is the subject';
+                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+        }
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +79,7 @@
                     <div class="lg:flex flex-row justify-between">
                     <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 ">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
+                        <?php echo "<br />" .$error;?>
                     </label>
                     <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
@@ -39,25 +98,26 @@
                     <!-- E-mail -->
                     <label for="mail" alt="E-mail" class="flex flex-col lg:my-4">E-mail
                         <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
+                        <?php echo "<br />" .$error;?>
                     </label>
                     <!-- Country-->
                     <label for="country" class="flex flex-col">Country
-                        <input type="email" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
+                        <input type="text" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
                     </label>
                     <!-- Subject-->
                     <label for="subject" class="block lg:mt-4">Subject</label>
-                        <select name="subject" alt="Choose Subject" class="rounded">
-                            <option value="" selected disabled hidden>Choose here</option>
+                        <select name="subject" alt="Choose Subject" class="rounded text-black">
+                            <option value="" selected disabled hidden>Other</option>
                             <option value="recrutement">Recrutement</option>
                             <option value="reclamation" alt="order info">Info about my order</option>
                             <option value="other" alt="refund">Refund</option>
                         </select>
-                </form>
                 <!-- Message -->
                 <label for="message" alt="message" class="lg:mt-4">Message</label>
                 <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto" placeholder="Your text here..."></textarea>
             </div>
                 <input type="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500 absolute right-0">
+            </form>
         </section>
     </div>
 </body>
