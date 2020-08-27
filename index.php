@@ -18,11 +18,11 @@
             <div class="form__all text-center p-10 m-auto px-10 flex flex-col  rounded-lg text-white">
                 <form action="" method="POST">
                     <!-- Lastname and Firstname -->
-                    <div class="lg:flex flex-row justify-around">
-                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 justify-between">Lastname
+                    <div class="lg:flex flex-row justify-between">
+                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 ">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
                     </label>
-                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48 justify-between">firstname
+                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
                     </label>
                     </div>
@@ -37,7 +37,7 @@
                             <input type="radio" name="gender" value="o" alt="Other" class="align-middle">
                         </section>
                     <!-- E-mail -->
-                    <label for="mail" alt="E-mail" class="flex flex-col lg:m-4">E-mail
+                    <label for="mail" alt="E-mail" class="flex flex-col lg:my-4">E-mail
                         <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
                     </label>
                     <!-- Country-->
