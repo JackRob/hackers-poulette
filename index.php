@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3a60bb9203d81fd087506eef8b60775ab45a59e2
 <?php
     require 'DELET.php';
     //PHPMAILER
@@ -57,7 +60,10 @@
         }
     } 
 ?>
+<<<<<<< HEAD
 >>>>>>> 8362b29... Correction Mail/MDP
+=======
+>>>>>>> 3a60bb9203d81fd087506eef8b60775ab45a59e2
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,6 +87,7 @@
                     <div class="lg:flex flex-row justify-between">
                     <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 ">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
+                        <?php echo "<br />" .$error;?>
                     </label>
                     <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
@@ -99,25 +106,26 @@
                     <!-- E-mail -->
                     <label for="mail" alt="E-mail" class="flex flex-col lg:my-4">E-mail
                         <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
+                        <?php echo "<br />" .$error;?>
                     </label>
                     <!-- Country-->
                     <label for="country" class="flex flex-col">Country
-                        <input type="email" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
+                        <input type="text" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
                     </label>
                     <!-- Subject-->
                     <label for="subject" class="block lg:mt-4">Subject</label>
-                        <select name="subject" alt="Choose Subject" class="rounded">
-                            <option value="" selected disabled hidden>Choose here</option>
+                        <select name="subject" alt="Choose Subject" class="rounded text-black">
+                            <option value="" selected disabled hidden>Other</option>
                             <option value="recrutement">Recrutement</option>
                             <option value="reclamation" alt="order info">Info about my order</option>
                             <option value="other" alt="refund">Refund</option>
                         </select>
-                </form>
                 <!-- Message -->
                 <label for="message" alt="message" class="lg:mt-4">Message</label>
                 <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto" placeholder="Your text here..."></textarea>
             </div>
                 <input type="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500 absolute right-0">
+            </form>
         </section>
     </div>
 </body>
