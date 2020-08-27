@@ -1,5 +1,5 @@
 <?php
-    require 'form.php';
+    require 'DELET.php';
     //PHPMAILER
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -23,15 +23,14 @@
             $error = "Invalid! ";
         } else {
             $mail = new PHPMailer(true);
-
             try {
                 //Server settings
                 // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                                                // Enable verbose debug output
                 $mail->isSMTP();                                                                                                    // Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                                                            // Set the SMTP server to send through
-                $mail->Username   = 'artofgrob@gmail.com';                                                         // SMTP username
+                $mail->Username   = $myMail;                                                         // SMTP username
                 $mail->SMTPAuth   = true;                                                                                   // Enable SMTP authentication
-                $mail->Password   = 'E1Gg2lC8-Mao1P12$';                                                                               // SMTP password
+                $mail->Password   = $pass;                                                                               // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;  //587 outlook                                                                                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
