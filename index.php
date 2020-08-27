@@ -10,22 +10,24 @@
     <title alt="Hackers Poulette - The favorite formulaire of KFC ! ">Hackers Poulette - The favorite formulaire of KFC ! </title>
 </head>
 <body class="bg-gray-300 sm:text-5xl lg:text-2xl">
-    <div class="container m-auto">
+    <div class="container sm:m-auto ">
         <header class="flex justify-center">
                 <img src="assets/img/hackers-poulette-logo.png" alt="Logo Hackers Poulette">
         </header>
-        <section>
-            <div class="form__all text-center p-10 px-8 flex flex-col rounded-lg text-white">
+        <section class="m-auto relative  lg:w-2/5">
+            <div class="form__all text-center p-10 m-auto px-10 flex flex-col  rounded-lg text-white">
                 <form action="" method="POST">
                     <!-- Lastname and Firstname -->
-                    <label for="l-name" alt="Lastname" class="block">Lastname
+                    <div class="lg:flex flex-row justify-around">
+                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 justify-between">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
                     </label>
-                    <label for="f-name" alt="Firstname" class="block">firstname
+                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48 justify-between">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
                     </label>
+                    </div>
                     <!-- Gender -->
-                    <label for="gender" alt="Gender" class="block text-center">Gender</label>
+                    <label for="gender" alt="Gender" class="block text-center lg:mt-4">Gender</label>
                          <section class="text-center m-0">
                             <label for=gender>M</label>
                             <input type="radio" name="gender" value="m" alt="Masculin" class="align-middle">
@@ -35,16 +37,15 @@
                             <input type="radio" name="gender" value="o" alt="Other" class="align-middle">
                         </section>
                     <!-- E-mail -->
-                    <label for="mail" alt="E-mail">E-mail
+                    <label for="mail" alt="E-mail" class="flex flex-col lg:m-4">E-mail
                         <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
                     </label>
                     <!-- Country-->
-                    <label for="country">Country
+                    <label for="country" class="flex flex-col">Country
                         <input type="email" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
                     </label>
                     <!-- Subject-->
-                   
-                    <label for="subject" class="block">Subject</label>
+                    <label for="subject" class="block lg:mt-4">Subject</label>
                         <select name="subject" alt="Choose Subject" class="rounded">
                             <option value="" selected disabled hidden>Choose here</option>
                             <option value="recrutement">Recrutement</option>
@@ -52,12 +53,11 @@
                             <option value="other" alt="refund">Refund</option>
                         </select>
                 </form>
-
                 <!-- Message -->
-                <label for="message" alt="message">Message</label>
-                <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600" placeholder="Your text here..."></textarea>
+                <label for="message" alt="message" class="lg:mt-4">Message</label>
+                <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto" placeholder="Your text here..."></textarea>
             </div>
-                <input type="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500">
+                <input type="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500 absolute right-0">
         </section>
     </div>
 </body>
