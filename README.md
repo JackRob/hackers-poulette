@@ -21,15 +21,20 @@ Challenge PHP qui à pour but de travailler l'interaction avec les formulaire et
  - :x: Réponsre à l'utilisateur via une requête Ajax
 
 ## **How**
-(In progress)
+- Formulaire réalisé via la balise form HTML et interpretée par PHP. 
+- Utilisation d'un système de Honeypot, permetttant d'éviter les spams inutiles.
+- Pour ce qui est de l'envoie du mail, PHPMailer est utilisé, récupèrent les informations du formulaire pour envoyer
+le message au destinataire (le mail inscrit). (Juste pour l'exercice)
+- Pour ce qui est du style, j'utilise en partie Tailwind Css et Sass lorsque je dois faire quelques configuration personalisée. 
+- Mock Ups réalisé avec Figma
 
 # **Update :scroll:**  
-  - Work in Progress
+  - 28/08 : Première version 
 
 ## **Roadmap**  
- - 26 / 08 : Mock up and PHP form 
- - 27 / 08 : Validation Form & Mail 
- - 28 / 08 : ?
+ - ~~26 / 08 : Mock up and PHP form ~~
+ - ~~27 / 08 : Validation Form & Mail ~~
+ - ~~28 / 08 : Secursation et gestion erreur / Aria ~~
 
 # **Who ? :busts_in_silhouette:**
 - :godmode:[JackRob](https://github.com/JackRob)

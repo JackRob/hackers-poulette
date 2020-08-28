@@ -36,13 +36,17 @@
                     $mail->Port       = 587;  //587 outlook                                                                                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
     
                     //Recipients
-                    $mail->setFrom($myMail, "$lName $fName");
+                    $mail->setFrom($myMail, "Mr Robot");
                     $mail->addAddress($email);     // Add a recipient
     
                     // Content
                     $mail->isHTML(true);                                  // Set email format to HTML
                     $mail->Subject = "Communication about $subject";
-                    $mail->Body    = "Dear $lName, I send you this E-mail to confirme your message about <b>$subject</b> $msg ";
+                    $mail->Body    = "Dear $lName $fName, I send you this E-mail to confirme your message about  your subject : <b>$subject</b>. I'm sorry about
+                                                    your request, but I unfortunately can't do nothing at the moment.. You know.. It's just an exercice ! 
+                                                    but, I'm kind.. so I will display your message after mine. <br />
+                                                    Your message was :  <br />
+                                                    ' At $country, <br /> $msg' ";
     
                     $mail->send();
                         $sendOk = 'Message has been sent';
