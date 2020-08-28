@@ -1,6 +1,6 @@
 .form__all {
   background: #303030; }
-  .form__all input {
+  .form__all input, .form__all select {
     color: #0D8187; }
 
 input {
@@ -20,11 +20,18 @@ textarea {
 
 @font-face {
   font-family: 'bellotaregular';
-  src: url("../../fonts/Bellota-Regular-webfont.woff");
-  src: url("../../fonts/Bellota-Regular-webfont.html");
+  src: url("../../fonts/Bellota-Regular.otf");
   font-weight: normal;
   font-style: normal; }
-body {
+@font-face {
+  font-family: "bellotabold";
+  src: url("../../fonts/Bellota-Bold.otf");
+  font-weight: normal;
+  font-style: normal; }
+* {
   font-family: "bellotaregular", Arial, Helvetica, sans-serif; }
+
+input {
+  font-family: "bellotabold", Arial, Helvetica, sans-serif; }
 
 /*# sourceMappingURL=style.css.map */

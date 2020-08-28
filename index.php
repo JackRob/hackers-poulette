@@ -96,34 +96,34 @@
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                     <!-- Lastname and Firstname -->
                     <div class="lg:flex flex-row justify-between">
-                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 font-bold" name="Lastname">Lastname
-                        <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600 px-2" maxlength="20"/>
+                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 font-bold" name="Lastname" id ="lName">Lastname
+                        <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600 px-2" maxlength="20" aria-labelledby="lName"/>
                         <?php echo "<br />" .$errorL;?>
                     </label>
-                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48 font-bold" name="Firstname">firstname
-                    <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600 px-2" maxlength="15"/>
+                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48 font-bold" name="Firstname" id ="fName">firstname
+                    <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600 px-2" maxlength="15" aria-labelledby="fName"/>
                     <?php echo "<br />" .$errorF;?>
                     </label>
                     </div>
                     <!-- Gender -->
-                    <label for="gender" alt="Gender" class="block text-center lg:mt-4 font-bold" name="gender">Gender</label>
+                    <label for="gender" alt="Gender" class="block text-center lg:mt-4 font-bold" name="gender" id="gender">Gender</label>
                          <section class="text-center m-0">
-                            <label for=gender>M</label>
-                            <input type="radio" name="gender" value="m" alt="Masculin" class="align-middle"/>
-                            <label for="gender" class="ml-4">F</label>
-                            <input type="radio" name="gender" value="f" alt="Feminin" class="align-middle"/>
-                            <label for="gender" class="ml-4">O</label>
-                            <input type="radio" name="gender" value="o" alt="Other" class="align-middle"/>
+                            <label for="masculin">M</label>
+                            <input type="radio" name="gender" value="masculin" alt="Masculin" class="align-middle" aria-checked="false"/>
+                            <label for="feminin" class="ml-4">F</label>
+                            <input type="radio" name="gender" value="feminin" alt="Feminin" class="align-middle" aria-checked="false"/>
+                            <label for="other" class="ml-4">O</label>
+                            <input type="radio" name="gender" value="other" alt="Other" class="align-middle" aria-checked="false"/>
                             <?php echo $errorG;?>
                         </section>
                     <!-- E-mail -->
                     <label for="mail" alt="E-mail" class="flex flex-col lg:my-4 font-bold" name="Email">E-mail
-                        <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600 px-2" maxlength="35"/>
+                        <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600 px-2" maxlength="35" aria-labelledby="mail"/>
                         <?php echo "<br />" .$errorE;?>
                     </label>
                     <!-- Country-->
                     <label for="country" class="flex flex-col font-bold" name="Country">Country
-                        <input type="text" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600 px-2" maxlength="30"/>
+                        <input type="text" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600 px-2" maxlength="30" aria-labelledby="country">
                         <?php echo "<br />" .$errorC;?>
                     </label>
                     <!-- ytiruces pot de miel-->
@@ -131,7 +131,7 @@
                     <!-- Subject-->
                     <label for="subject" class="block lg:mt-4 font-bold" name="Subject">Subject</label>
                         <select name="subject" alt="Choose Subject" class="rounded text-black">
-                            <option value="" selected disabled hidden>Other</option>
+                            <option value="" selected>Other</option>
                             <option value="recrutement">Recrutement</option>
                             <option value="reclamation" alt="order info">Info about my order</option>
                             <option value="other" alt="refund">Refund</option>
@@ -139,7 +139,7 @@
                 <!-- Message -->
                 <label for="message" alt="message" class=" block lg:mt-4 font-bold" name="Message">Message</label>
                 <?php echo $errorM;?>
-                <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto px-2" placeholder="Your text here..." maxlength="300"></textarea>
+                <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto px-2" placeholder="Your text here..." maxlength="300" aria-labelledby="message"></textarea>
             </div>
                 <input type="submit" id="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500 absolute right-0">
             </form>
