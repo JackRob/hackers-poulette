@@ -20,14 +20,14 @@ textarea {
 
 @font-face {
   font-family: 'bellotaregular';
-  src: url("../../fonts/Bellota-Regular.otf");
+  src: url("../../fonts/Bellota-Regular-webfont.eot");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: "bellotabold";
-  src: url("../../fonts/Bellota-Bold.otf");
-  font-weight: normal;
-  font-style: normal; }
+  src: url("../../fonts/Bellota-Bold-webfont.eot");
+  font-weight: bold;
+  font-style: bold; }
 * {
   font-family: "bellotaregular", Arial, Helvetica, sans-serif; }
 
