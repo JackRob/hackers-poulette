@@ -18,54 +18,60 @@
     $subject= $_POST['subject'];
     $msg = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
-    if(isset($lName, $fName, $gender, $email, $country, $msg)){
-        if(false === filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $errorE = "Invalid E-mail! ";
-        } else {
-            $mail = new PHPMailer(true);
-            try {
-                //Server settings
-                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                                                // Enable verbose debug output
-                $mail->isSMTP();                                                                                                    // Send using SMTP
-                $mail->Host       = 'smtp.gmail.com';                                                            // Set the SMTP server to send through
-                $mail->Username   = $myMail;                                                         // SMTP username
-                $mail->SMTPAuth   = true;                                                                                   // Enable SMTP authentication
-                $mail->Password   = $pass;                                                                               // SMTP password
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-                $mail->Port       = 587;  //587 outlook                                                                                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-
-                //Recipients
-                $mail->setFrom('mail', "$lName $fName");
-                $mail->addAddress($email);     // Add a recipient
-
-                // Content
-                $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'Communication about ' . $subject;
-                $mail->Body    = "Dear $lName, I send you this E-mail to confirme your message about <b>$subject</b> $msg ";
-
-                $mail->send();
-                    $sendOk = 'Message has been sent';
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    if(isset($_POST['submit'])){
+        if(isset($lName, $fName, $gender, $email, $country, $msg)){
+            if(false === filter_var($email, FILTER_VALIDATE_EMAIL)){
+                $errorE = "Invalid E-mail! See example : example@mail.com";
+            } else {
+                $mail = new PHPMailer(true);
+                try {
+                    //Server settings
+                    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                                                // Enable verbose debug output
+                    $mail->isSMTP();                                                                                                    // Send using SMTP
+                    $mail->Host       = 'smtp.gmail.com';                                                            // Set the SMTP server to send through
+                    $mail->Username   = $myMail;                                                         // SMTP username
+                    $mail->SMTPAuth   = true;                                                                                   // Enable SMTP authentication
+                    $mail->Password   = $pass;                                                                               // SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                   // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                    $mail->Port       = 587;  //587 outlook                                                                                             // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+    
+                    //Recipients
+                    $mail->setFrom('mail', "$lName $fName");
+                    $mail->addAddress($email);     // Add a recipient
+    
+                    // Content
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'Communication about ' . $subject;
+                    $mail->Body    = "Dear $lName, I send you this E-mail to confirme your message about <b>$subject</b> $msg ";
+    
+                    $mail->send();
+                        $sendOk = 'Message has been sent';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+            }
+        }  else if ($_POST['submit']){
+            if($lName == ""){
+                $errorL = "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700 '>Your lastname is empty</p>";
+            }
+            if($fName == ""){
+                $errorF =  "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700'>Your firstname is empty</p>";
+            }
+            if($gender == ""){
+                $errorG = "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700'>Your gender is empty</p>";
+            }
+            if($country == ""){
+                $errorC = "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700'>Your country is empty</p>";
+            }
+            if($msg == ""){
+                $errorM = "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700'>You want to saend an Empty message ?</p>";
+            }
+            if($email == ""){
+                $errorE = "<p class=' m-2 text-xs bg-red-200 text-orange-700 rounded border-2 border-red-700'>Your e-mail is empty</p>";
             }
         }
-    }  else {
-        if($lName == ""){
-            $errorL = "Invalid Lastname";
-        }
-        if($fName == ""){
-            $errorF = "Invalid Firstname";
-        }
-        if($gender == ""){
-            $errorG = "Invalid gender";
-        }
-        if($country == ""){
-            $errorC = "Invalid country";
-        }
-        if($msg == ""){
-            $errorM = "Message empty";
-        }
     }
+    
 ?>
 
 <!DOCTYPE html>
@@ -87,20 +93,20 @@
         <?php echo $sendOk ?>
         <section class="m-auto relative  lg:w-2/5">
             <div class="form__all text-center p-10 m-auto px-10 flex flex-col  rounded-lg text-white">
-                <form action="" method="POST">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                     <!-- Lastname and Firstname -->
                     <div class="lg:flex flex-row justify-between">
-                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 ">Lastname
+                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48" name="Lastname">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600">
                         <?php echo "<br />" .$errorL;?>
                     </label>
-                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48">firstname
+                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48" name="Firstname">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600">
                     <?php echo "<br />" .$errorF;?>
                     </label>
                     </div>
                     <!-- Gender -->
-                    <label for="gender" alt="Gender" class="block text-center lg:mt-4">Gender</label>
+                    <label for="gender" alt="Gender" class="block text-center lg:mt-4" name="gender">Gender</label>
                          <section class="text-center m-0">
                             <label for=gender>M</label>
                             <input type="radio" name="gender" value="m" alt="Masculin" class="align-middle">
@@ -108,20 +114,20 @@
                             <input type="radio" name="gender" value="f" alt="Feminin" class="align-middle">
                             <label for="gender" class="ml-4">O</label>
                             <input type="radio" name="gender" value="o" alt="Other" class="align-middle">
-                            <?php echo "<br />" .$errorG;?>
+                            <?php echo $errorG;?>
                         </section>
                     <!-- E-mail -->
-                    <label for="mail" alt="E-mail" class="flex flex-col lg:my-4">E-mail
+                    <label for="mail" alt="E-mail" class="flex flex-col lg:my-4" name="Email">E-mail
                         <input type="text" name="mail" alt="insert mail" placeholder="johnDoe@supermail.com" class="placeholder-teal-600">
                         <?php echo "<br />" .$errorE;?>
                     </label>
                     <!-- Country-->
-                    <label for="country" class="flex flex-col">Country
+                    <label for="country" class="flex flex-col" name="Country">Country
                         <input type="text" name="country" alt="Insert country" placeholder="Namur" class="placeholder-teal-600">
                         <?php echo "<br />" .$errorC;?>
                     </label>
                     <!-- Subject-->
-                    <label for="subject" class="block lg:mt-4">Subject</label>
+                    <label for="subject" class="block lg:mt-4" name="Subject">Subject</label>
                         <select name="subject" alt="Choose Subject" class="rounded text-black">
                             <option value="" selected disabled hidden>Other</option>
                             <option value="recrutement">Recrutement</option>
@@ -129,7 +135,7 @@
                             <option value="other" alt="refund">Refund</option>
                         </select>
                 <!-- Message -->
-                <label for="message" alt="message" class=" block lg:mt-4">Message</label>
+                <label for="message" alt="message" class=" block lg:mt-4" name="Message">Message</label>
                 <?php echo $errorM;?>
                 <textarea rows="6" cols="20" name="message" class="rounded placeholder-teal-600 w-full m-auto" placeholder="Your text here..."></textarea>
             </div>
