@@ -17,8 +17,8 @@ Challenge PHP qui à pour but de travailler l'interaction avec les formulaire et
   
  *Optionnel*
  - :x: Validation en JavaScript côté client
- - :x: Un UX clair et bon qui fonctionne
- - :x: Réponsre à l'utilisateur via une requête Ajax
+ - :heavy_check_mark: Un UX clair et bon qui fonctionne
+ - :x: Répondre à l'utilisateur via une requête Ajax
 
 ## **How**
 - Formulaire réalisé via la balise form HTML et interpretée par PHP. 
