@@ -93,22 +93,22 @@
     <link href='./assets/css/style.css' rel="stylesheet">
     <title alt="Hackers Poulette - The favorite formulaire of KFC ! ">Hackers Poulette - The favorite formulaire of KFC ! </title>
 </head>
-<body class="bg-gray-300 sm:text-5xl lg:text-2xl">
-    <div class="container sm:m-auto ">
+<body class="bg-gray-300 sm:text-3xl lg:text-2xl">
+    <div class="md:m-auto ">
         <header class="flex justify-center">
                 <img src="assets/img/hackers-poulette-logo.png" alt="Logo Hackers Poulette">
         </header>
         <?php echo "<p class='text-center w-1/2 m-auto block bg-green-400'>$sendOk</p>" ?>
-        <section class="m-auto relative  lg:w-2/5">
+        <section class="m-auto relative  sm:w-4/5 lg:w-2/5">
             <div class="form__all text-center p-10 m-auto px-10 flex flex-col  rounded-lg text-white">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                     <!-- Lastname and Firstname -->
-                    <div class="lg:flex flex-row justify-between">
-                    <label for="l-name" alt="Lastname" class="flex flex-col lg:w-48 font-bold" name="Lastname" id ="lName">Lastname
+                    <div class="xl:flex flex-row justify-between">
+                    <label for="l-name" alt="Lastname" class="flex flex-col xl:w-48 font-bold" name="Lastname" id ="lName">Lastname
                         <input type="text" name="l-name" placeholder="Doe" alt="insert lastname" class="placeholder-teal-600 px-2" maxlength="20" aria-labelledby="lName"/>
                         <?php echo "<br />" .$errorL;?>
                     </label>
-                    <label for="f-name" alt="Firstname" class="flex flex-col lg:w-48 font-bold" name="Firstname" id ="fName">firstname
+                    <label for="f-name" alt="Firstname" class="flex flex-col xl:w-48 font-bold" name="Firstname" id ="fName">firstname
                     <input type="text" name="f-name" placeholder="John" alt="insert firstname" class="placeholder-teal-600 px-2" maxlength="15" aria-labelledby="fName"/>
                     <?php echo "<br />" .$errorF;?>
                     </label>
@@ -152,7 +152,7 @@
                 <input type="submit" id="submit" name="submit" value="Send" alt="Submit" class="btn text-white px-16 py-3 m-4 font-medium hover:bg-teal-500 absolute right-0">
             </form>
         </section>
-        <footer class="foot w-1/2 text-center  text-white m-auto text-xs mt-24 rounded">
+        <footer class="foot w-1/2 text-center  text-white m-auto text-xs mt-32 rounded">
         <p>"Copyright (c) 2011-2013 Kemie Guaida (http://www.monolinea.com| fonts@pixilate.com>),with Reserved Font Name Bellota."</p>
         <p>"Copyright (c) 2011 Gesine Todt (www.gesine-todt.de), with Reserved Font Name “Snippet”."</p>
     </footer>
